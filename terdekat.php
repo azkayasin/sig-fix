@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>GeoJSON</title>
+    <title>Cari Masjid</title>
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
@@ -13,14 +13,14 @@
   </head>
   <body>
     <div>
-      <h1 class="lead display-1 text-center">GIS</h1>
+      <h1 class="lead display-1 text-center">Cari Masjid</h1>
     </div>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
             <div class="collapse navbar-collapse justify-content-md-center">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.php">1</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="terdekat.php">2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php">Cari Jarak ke Masjid Tertentu</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="terdekat.php">Cari Masjid Terdekat</a></li>
                 </ul>
             </div>
         </nav>
@@ -39,30 +39,46 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-3">
-                        <button onclick="return terdekat()" class="btn btn-danger" id="buttonCariJarak">Jarak Terdekat</button>
-                    </div>
-                    <div class="col-3">
-                        <p id="namamasjid"></p>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" name="pendekpol" id="pendekpol" >
-                    </div>
+                  <div class="col-3">
+                    <button onclick="return terdekat()" class="btn btn-danger" id="buttonCariJarak">Jarak Terdekat</button>
+                  </div>
+                  <div class="col-6">
+                    <button id="namamasjid" class="btn btn-primary"></button>
+                  </div>          
                 </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                  </div>
+                  <div class="col-3">
+                    <button id="jarakGanti" class="btn btn-primary">Jarak : </button>
+                  </div>          
+                </div>
+                <form id="lembar">
+                  <div class="form-group row">
+                    <div class="col-3">
+                        <!--<button onclick="return terdekat()" class="btn btn-danger" id="buttonCariJarak">Jarak Terdekat</button>-->
+                    </div>
+                    <div class="col-8">
+                    </div>
+                    <div class="col-3">
+                        <!--<input type="text" class="form-control" name="pendekpol" id="pendekpol" >-->
+                    </div>
+                  </div>
+                </form>
             <div>
               <div id="map" class="map"></div>
           </div>
         </main>
       </div>
-            <!-- <button onclick="getLocation()">Posisi anda</button> -->
-            <!-- <p id="namamasjid"></p>
-            <input type="text" class="form-control" name="pendekpol" id="pendekpol" > -->
-          <!-- <form id="lembar">
+            <!--<button onclick="getLocation()">Posisi anda</button>
+            <p id="namamasjid"></p>
+            <input type="text" class="form-control" name="pendekpol" id="pendekpol" >
+          <form id="lembar">
               <button onclick="return execute()" class="btn btn-danger mb-2">Submit</button>
                <p id="jarakGanti">Jarak : </p>
             </form>
-        </main> -->
-
+<!--         </main>
+ -->
       </div>
     </div>
     <script>
