@@ -19,46 +19,43 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
             <div class="collapse navbar-collapse justify-content-md-center">
                 <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link" href="index.php">1</a></li>
-                    <li class="nav-item"><a class="nav-link" href="terdekat.php">2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php">1</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="terdekat.php">2</a></li>
                 </ul>
             </div>
         </nav>
         <main role="main">
           <div class="jumbotron">
             <div class="col-sm-8 mx-auto">
-              <div class="form-group row">
-                <div class="col-3">
-                  <button class="btn btn-secondary" onclick="getLocation()">Posisi anda</button>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <button class="btn btn-secondary" onclick="getLocation()">Posisi anda</button>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" name="latitude" id="latitude" >
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" name="longitude" id="longitude" >
+                    </div>
                 </div>
-                <div class="col-3">
-                  <input type="text" class="form-control" name="latitude" id="latitude" >
+                <div class="form-group row">
+                    <div class="col-3">
+                        <button onclick="return terdekat()" class="btn btn-danger" id="buttonCariJarak">Jarak Terdekat</button>
+                    </div>
+                    <div class="col-3">
+                        <p id="namamasjid"></p>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" name="pendekpol" id="pendekpol" >
+                    </div>
                 </div>
-                <div class="col-3">
-                  <input type="text" class="form-control" name="longitude" id="longitude" >
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-3 col-form-label" for="exampleFormControlInput1">Nama Masjid</label>
-                <div class="col-4">
-                  <select class="custom-select" id=listmasjid name="product" width="100" style="width: 245px">
-                    <option value="1">Masjid Manarul Ilmi</option>
-                    <option value="2">Masjid As Saadah</option>
-                    <option value="3">Masjid Nur-Hasan</option>
-                  </select>
-                </div>
-              </div>
-              <form id="lembar">
-                <button onclick="return execute()" class="btn btn-danger mb-2">Submit</button>
-                <p id="jarakGanti">Jarak : </p>
-              </form>
+            <div>
               <div id="map" class="map"></div>
           </div>
         </main>
       </div>
             <!-- <button onclick="getLocation()">Posisi anda</button> -->
-            <!-- <button onclick="return terdekat()" class="btn btn-danger mb-2" id="buttonCariJarak">Jarak Terdekat</button>
-            <p id="namamasjid"></p>
+            <!-- <p id="namamasjid"></p>
             <input type="text" class="form-control" name="pendekpol" id="pendekpol" > -->
           <!-- <form id="lembar">
               <button onclick="return execute()" class="btn btn-danger mb-2">Submit</button>
