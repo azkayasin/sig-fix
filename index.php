@@ -37,6 +37,7 @@
           </center>
             <button onclick="getLocation()">Posisi anda</button>
             <button onclick="return terdekat()" class="btn btn-danger mb-2" id="buttonCariJarak">Jarak Terdekat</button>
+            <p id="namamasjid"></p>
             <input type="text" class="form-control" name="pendekpol" id="pendekpol" >
             <input type="text" class="form-control" name="latitude" id="latitude" >
             <input type="text" class="form-control" name="longitude" id="longitude" >

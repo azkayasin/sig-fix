@@ -374,6 +374,46 @@ function terdekat()
                         tex.text("Jarak : "+min+"km");
                        
                         $('#pendekpol').attr('value',terpendek);
+                        var oReq = new XMLHttpRequest();
+                        oReq.onload = reqListener;
+                        var url="http://localhost/sig/nama.php?x1="+terpendek;
+                        oReq.open("GET",url, true);
+                        oReq.send();
+                        function reqListener(e) {
+                            geojsonObject = (this.responseText);
+                            console.log("cek nama");
+                            console.log(geojsonObject);
+                            //resolve(geojsonObject);
+                            var nama = $('#namamasjid');
+                            nama.text("Masjid yang paling dekat adalah : "+geojsonObject);
+                        }
+
+                        var done= new Promise(function(resolve,reject){
+                        var elements=document.forms.lembar.getElementsByTagName('input');
+                        var temp21 = $('#latitude');
+                        var tempx = temp21.val();
+
+                        var temp22 = $('#longitude');
+                        var tempy = temp22.val();
+                        var masjidku = terpendek;
+                        var oReq = new XMLHttpRequest();
+                        oReq.onload = reqListener;
+                        var url="http://localhost/sig/find.php?x1="+tempx+"&y1="+tempy+"&masjid="+masjidku;
+                        oReq.open("GET",url, true);
+                        oReq.send();
+                        console.log(url);
+                        function reqListener(e) {
+                            geojsonObject = JSON.parse(this.responseText);
+                            resolve(geojsonObject);
+                        }
+                    });
+
+                    done.then((geojsonObject)=>{
+                      vectorLayer.getSource().addFeatures(format.readFeatures(geojsonObject.astar));
+                      vectorLayer1.getSource().addFeatures(format.readFeatures(geojsonObject.dijkstra));
+                    }).catch((error)=>{
+                      console.log(error);
+                    });
                         
                     }
                     console.log(total);
@@ -422,6 +462,46 @@ function terdekat()
                         tex.text("Jarak : "+min+"km");
                        
                         $('#pendekpol').attr('value',terpendek);
+                        var oReq = new XMLHttpRequest();
+                        oReq.onload = reqListener;
+                        var url="http://localhost/sig/nama.php?x1="+terpendek;
+                        oReq.open("GET",url, true);
+                        oReq.send();
+                        function reqListener(e) {
+                            geojsonObject = (this.responseText);
+                            console.log("cek nama");
+                            console.log(geojsonObject);
+                            //resolve(geojsonObject);
+                            var nama = $('#namamasjid');
+                            nama.text("Masjid yang paling dekat adalah : "+geojsonObject);
+                        }
+
+                        var done= new Promise(function(resolve,reject){
+                        var elements=document.forms.lembar.getElementsByTagName('input');
+                        var temp21 = $('#latitude');
+                        var tempx = temp21.val();
+
+                        var temp22 = $('#longitude');
+                        var tempy = temp22.val();
+                        var masjidku = terpendek;
+                        var oReq = new XMLHttpRequest();
+                        oReq.onload = reqListener;
+                        var url="http://localhost/sig/find.php?x1="+tempx+"&y1="+tempy+"&masjid="+masjidku;
+                        oReq.open("GET",url, true);
+                        oReq.send();
+                        console.log(url);
+                        function reqListener(e) {
+                            geojsonObject = JSON.parse(this.responseText);
+                            resolve(geojsonObject);
+                        }
+                    });
+
+                    done.then((geojsonObject)=>{
+                      vectorLayer.getSource().addFeatures(format.readFeatures(geojsonObject.astar));
+                      vectorLayer1.getSource().addFeatures(format.readFeatures(geojsonObject.dijkstra));
+                    }).catch((error)=>{
+                      console.log(error);
+                    });
                     }
                     console.log(total);
                     console.log(semuajarak);
@@ -478,8 +558,38 @@ function terdekat()
                         oReq.send();
                         function reqListener(e) {
                             geojsonObject = (this.responseText);
+                            console.log("cek nama");
+                            console.log(geojsonObject);
+                            //resolve(geojsonObject);
+                            var nama = $('#namamasjid');
+                            nama.text("Masjid yang paling dekat adalah : "+geojsonObject);
+                        }
+                        var done= new Promise(function(resolve,reject){
+                        var elements=document.forms.lembar.getElementsByTagName('input');
+                        var temp21 = $('#latitude');
+                        var tempx = temp21.val();
+
+                        var temp22 = $('#longitude');
+                        var tempy = temp22.val();
+                        var masjidku = terpendek;
+                        var oReq = new XMLHttpRequest();
+                        oReq.onload = reqListener;
+                        var url="http://localhost/sig/find.php?x1="+tempx+"&y1="+tempy+"&masjid="+masjidku;
+                        oReq.open("GET",url, true);
+                        oReq.send();
+                        console.log(url);
+                        function reqListener(e) {
+                            geojsonObject = JSON.parse(this.responseText);
                             resolve(geojsonObject);
                         }
+                    });
+
+                    done.then((geojsonObject)=>{
+                      vectorLayer.getSource().addFeatures(format.readFeatures(geojsonObject.astar));
+                      vectorLayer1.getSource().addFeatures(format.readFeatures(geojsonObject.dijkstra));
+                    }).catch((error)=>{
+                      console.log(error);
+                    });
 
                     }
                     console.log(total);
